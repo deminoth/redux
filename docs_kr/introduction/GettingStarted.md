@@ -98,8 +98,8 @@ function counterReducer(state = { value: 0 }, action) {
 let store = createStore(counterReducer)
 
 // subscribe()를 이용해 상태 변화에 따라 UI가 변경되게 할 수 있습니다.
-// 보통은 subscribe()를 직접 사용하기보다는 뷰 바인딩 라이브러리(예를 들어 React Redux)를 사용합니다.
-// 구독을 사용하면 도움이 되는 경우도 있습니다.
+// 보통은 subscribe()를 직접 사용하기보다는 뷰 바인딩 라이브러리(예를 들어 React Redux)를
+// 사용합니다. 구독을 사용하면 도움이 되는 경우도 있습니다.
 
 store.subscribe(() => console.log(store.getState())))
 
@@ -154,7 +154,7 @@ const store = configureStore({
 // 저장소 구독은 여전히 가능합니다
 store.subscribe(() => console.log(store.getState()))
 
-// 여전히 `dispatch`에 액션 객체를 넘겨야 하지만, 이미 만들어져 있습니다.
+// 여전히 `dispatch`에 액션 객체를 넘겨야 하지만, 여러분을 위해 준비되어 있습니다.
 store.dispatch(incremented())
 // {value: 1}
 store.dispatch(incremented())
@@ -169,36 +169,36 @@ Redux Toolkit은 Redux의 동작과 데이터 흐름을 여전히 따르지만 �
 
 Redux를 배우는 데 도움이 될 다양한 자료가 있습니다.
 
-### Redux Essentials Tutorial
+### Redux 필수 강좌
 
-The [**Redux Essentials tutorial**](../tutorials/essentials/part-1-overview-concepts.md) is a "top-down" tutorial that teaches "how to use Redux the right way", using our latest recommended APIs and best practices. We recommend starting there.
+[**Redux 필수 강좌**](../tutorials/essentials/part-1-overview-concepts.md)는 저희가 추천하는 API를 이용해 Redux를 올바르게 사용하는 방법을 큰 그림부터 자세한 부분까지 알려드립니다. 여기서부터 시작하는 것을 권장합니다.
 
-### Redux Fundamentals Tutorial
+### Redux 핵심 강좌
 
-The [**Redux Fundamentals tutorial**](../tutorials/fundamentals/part-1-overview.md) is a "bottom-up" tutorial that teaches "how Redux works" from first principles and without any abstractions, and why standard Redux usage patterns exist.
+[**Redux 핵심 강좌**](../tutorials/fundamentals/part-1-overview.md)는 "Redux가 어떻게 작동하는지"를 첫번째 원칙부터, 추상적인 설명 없이, 왜 일반적인 Redux 패턴이 존재하는지 세부적인 부분부터 가르쳐 드립니다.
 
 
-### Additional Tutorials
+### 추가 강좌
 
-- The Redux repository contains several example projects demonstrating various aspects of how to use Redux. Almost all examples have a corresponding CodeSandbox sandbox. This is an interactive version of the code that you can play with online. See the complete list of examples in the **[Examples page](./Examples.md)**.
-- Redux creator Dan Abramov's **free ["Getting Started with Redux" video series](https://egghead.io/series/getting-started-with-redux)** and **[Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)** video courses on Egghead.io
-- Redux maintainer Mark Erikson's **["Redux Fundamentals" conference talk](http://blog.isquaredsoftware.com/2018/03/presentation-reactathon-redux-fundamentals/)** and [**"Redux Fundamentals" workshop slides**](https://blog.isquaredsoftware.com/2018/06/redux-fundamentals-workshop-slides/)
-- Dave Ceddia's post [**A Complete React Redux Tutorial for Beginners**](https://daveceddia.com/redux-tutorial/)
+- Redux 레포지터리는 Redux를 어떻게 사용하는지에 대해 다양한 면을 보여주는 예제들을 포함하고 있습니다. 거의 모든 예제들에 온라인에서 실행해 볼 수 있는 CodeSandbox가 들어 있습니다. 전체 목록은 **[예제 페이지](./Examples.md)**에서 확인하세요.
+- Redux 제작자 Dan Abramov의 **무료 ["Getting Started with Redux" 비디오 시리즈](https://egghead.io/series/getting-started-with-redux)**와 Egghead.io 비디오 코스인 **[Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)**
+- Redux 메인테이너 Mark Erikson의 **["Redux Fundamentals" 컨퍼런스 발표](http://blog.isquaredsoftware.com/2018/03/presentation-reactathon-redux-fundamentals/)**와 [**"Redux Fundamentals" 워크샵 슬라이드**](https://blog.isquaredsoftware.com/2018/06/redux-fundamentals-workshop-slides/)
+- Dave Ceddia의 포스팅 [**A Complete React Redux Tutorial for Beginners**](https://daveceddia.com/redux-tutorial/)
 
-### Other Resources
+### 다른 자료들
 
-- The **[Redux FAQ](../FAQ.md)** answers many common questions about how to use Redux, and the **["Recipes" docs section](../recipes/README.md)** has information on handling derived data, testing, structuring reducer logic, and reducing boilerplate.
-- Redux maintainer Mark Erikson's **["Practical Redux" tutorial series](http://blog.isquaredsoftware.com/series/practical-redux/)** demonstrates real-world intermediate and advanced techniques for working with React and Redux (also available as **[an interactive course on Educative.io](https://www.educative.io/collection/5687753853370368/5707702298738688)**).
-- The **[React/Redux links list](https://github.com/markerikson/react-redux-links)** has categorized articles on working with [reducers and selectors](https://github.com/markerikson/react-redux-links/blob/master/redux-reducers-selectors.md), [managing side effects](https://github.com/markerikson/react-redux-links/blob/master/redux-side-effects.md), [Redux architecture and best practices](https://github.com/markerikson/react-redux-links/blob/master/redux-architecture.md), and more.
-- Our community has created thousands of Redux-related libraries, addons, and tools. The **["Ecosystem" docs page](./Ecosystem.md)** lists our recommendations, and there's a complete listing available in the **[Redux addons catalog](https://github.com/markerikson/redux-ecosystem-links)**.
+- **[Redux FAQ](../FAQ.md)**는 Redux를 어떻게 써야 하는지에 대한 일반적인 질문들에 답해주고, **["Recipes" 문서](../recipes/README.md)**에는 파생된 데이터, 테스트, 리듀서 로직 구성, 보일러플레이트 줄이기 등에 대한 정보가 있습니다.
+- Redux 메인테이너 Mark Erikson의 **["Practical Redux" 강좌 시리즈](http://blog.isquaredsoftware.com/series/practical-redux/)**는 실전에서 React와 Redux를 사용하기 위한 중상급 테크닉들을 보여줍니다 (**[an interactive course on Educative.io](https://www.educative.io/collection/5687753853370368/5707702298738688)**에서도 이용할 수 있습니다).
+- **[React/Redux links list](https://github.com/markerikson/react-redux-links)**에는 [리듀서와 셀렉터](https://github.com/markerikson/react-redux-links/blob/master/redux-reducers-selectors.md), [부수효과 관리하기](https://github.com/markerikson/react-redux-links/blob/master/redux-side-effects.md), [Redux 아키텍처와 모범 사례](https://github.com/markerikson/react-redux-links/blob/master/redux-architecture.md)등의 정리된 글들이 있습니다.
+- 커뮤니티에서 수천가지의 Redux 관련 라이브러리, 애드온, 도구들을 만들었습니다. **["생태계" 문서](./Ecosystem.md)**에 저희의 추천 목록이 있습니다. 전체 목록은 **[Redux addons catalog](https://github.com/markerikson/redux-ecosystem-links)**에서 보실 수 있습니다.
 
 ## 도움과 논의
 
-The **[#redux channel](https://discord.gg/reactiflux)** of the **[Reactiflux Discord community](http://www.reactiflux.com)** is our official resource for all questions related to learning and using Redux. Reactiflux is a great place to hang out, ask questions, and learn - come join us!
+**[Reactiflux Discord 커뮤니티](http://www.reactiflux.com)**의 **[#redux 채널](https://discord.gg/reactiflux)**은 Redux를 배우고 사용하는데 관련된 질문을 위한 저희의 공식 채널입니다. Reactiflux는 질문을 하고 배우며 시간을 보낼만한 멋진 곳입니다 - 저희와 함께하세요!
 
-You can also ask questions on [Stack Overflow](https://stackoverflow.com) using the **[#redux tag](https://stackoverflow.com/questions/tagged/redux)**.
+[Stack Overflow](https://stackoverflow.com)에 **[#redux 태그](https://stackoverflow.com/questions/tagged/redux)**를 사용해 질문할수도 있습니다.
 
-If you have a bug report or need to leave other feedback, [please file an issue on the Github repo](https://github.com/reduxjs/redux)
+버그 리포트나 다른 피드백을 남기고 싶다면, [Github 레포에 이슈를 남겨주세요](https://github.com/reduxjs/redux).
 
 ## Redux를 사용해야 할까요?
 
