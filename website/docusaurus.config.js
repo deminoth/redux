@@ -28,14 +28,14 @@ module.exports = {
           position: 'right'
         },
         {
-          label: 'Tutorial',
+          label: '강좌',
           to: 'tutorials/essentials/part-1-overview-concepts',
           position: 'right'
         },
         { label: 'API', to: 'api/api-reference', position: 'right' },
         { label: 'FAQ', to: 'faq', position: 'right' },
         {
-          label: 'Best Practices',
+          label: '모범 사례',
           to: '/style-guide/style-guide',
           position: 'right'
         },
@@ -62,7 +62,7 @@ module.exports = {
               to: 'introduction/getting-started'
             },
             {
-              label: 'Tutorial',
+              label: '강좌',
               to: 'tutorials/essentials/part-1-overview-concepts'
             },
             {
