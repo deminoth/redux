@@ -1,6 +1,6 @@
 ---
 id: faq
-title: FAQ 색인
+title: FAQ 목차
 hide_title: true
 ---
 

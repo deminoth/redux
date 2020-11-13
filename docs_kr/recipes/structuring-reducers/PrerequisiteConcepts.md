@@ -7,7 +7,7 @@ hide_title: true
 
 # 사전에 요구되는 개념들
 
-[리듀서](../../basics/Reducers.md)에서 설명한 것처럼 리덕스의 리듀서는 함수입니다:
+["Redux 핵심" Part 3: 상태, 액션, 리듀서](../../tutorials/fundamentals/part-3-state-actions-reducers.md)에서 설명한 것처럼 리덕스의 리듀서는 함수입니다:
 
 - `(previousState, action) => newState`의 꼴로 작성되어야 합니다. [`Array.prototype.reduce(reducer, ?initialValue)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)에 전달되는 함수 타입과 비슷합니다.
 - "순수"해야 합니다. 리듀서에서 이것의 의미는:
@@ -37,7 +37,7 @@ hide_title: true
 
 **읽어볼 것들**
 
-- [리덕스 도큐먼트: 리듀서](../../basics/Reducers.md)
+- ["Redux 핵심" Part 3: 상태, 액션, 리듀서](../../tutorials/fundamentals/part-3-state-actions-reducers.md)
 - [리덕스 도큐먼트: 보일러플레이트 줄이기](../ReducingBoilerplate.md)
 - [리덕스 도큐먼트: 실행취소 구현하기](../ImplementingUndoHistory.md)
 - [리덕스 도큐먼트: `combineReducers`](../../api/combineReducers.md)

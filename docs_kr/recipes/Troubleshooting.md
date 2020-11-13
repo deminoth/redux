@@ -203,4 +203,4 @@ export default connect()(AddTodo)
 ## 다른것이 작동하지 않습니다
 
 **#redux** [Reactiflux](http://reactiflux.com/) Discord 채널에서 물어보거나, [이슈를 생성](https://github.com/reactjs/redux/issues)하세요.
-문제를 해결했다면, 같은 문제를 가진 다른 사람들를 위해 [이 문서를 수정](https://github.com/reactjs/redux/edit/master/docs/Troubleshooting.md)해주세요.
+문제를 해결했다면, 같은 문제를 가진 다른 사람들를 위해 [이 문서를 수정](https://github.com/reactjs/redux/edit/master/docs/recipes/Troubleshooting.md)해주세요.

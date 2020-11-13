@@ -63,33 +63,31 @@ yarn add redux
 
 ## 기본 예제
 
-여러분의 앱의 상태 전부는 하나의 저장소(_store_)안에 있는 객체 트리에 저장됩니다.
-상태 트리를 변경하는 유일한 방법은 무엇이 일어날지 서술하는 객체인 액션(_action_)을 보내는 것 뿐입니다.
-액션이 상태 트리를 어떻게 변경할지 명시하기 위해 여러분은 리듀서(_reducers_)를 작성해야 합니다.
-
-이게 다입니다!
+여러분의 앱의 전역 상태 전부는 하나의 저장소(_store_)안에 있는 객체 트리에 저장됩니다.
+상태 트리를 변경하는 유일한 방법은 무엇이 일어날지 서술하는 객체인 액션(_action_)을 만들어서 저장소로 보내는(_dispatch_) 것 뿐입니다.
+상태가 액션에 의해 어떻게 바뀔지 명시하기 위해, 여러분은 이전 상태와 액션으로부터 새 상태를 계산하는 순수 함수인 리듀서(_reducers_)를 작성해야 합니다.
 
 ```js
 import { createStore } from 'redux'
 
 /**
- * 이것이 (state, action) => state 형태의 순수 함수인 리듀서입니다.
- * 리듀서는 액션이 어떻게 상태를 다음 상태로 변경하는지 서술합니다.
+ * 이것이 현재 상태와 "무엇이 일어날지" 서술하는 액션 객체를 받아
+ * 새 상태값을 반환하는 함수인 리듀서입니다.
+ * 리듀서의 함수 시그니처는 (state, action) => newState 입니다.
  *
- * 상태의 모양은 당신 마음대로입니다: 기본형(primitive)일수도, 배열일수도, 객체일수도,
- * 심지어 Immutable.js 자료구조일수도 있습니다.  오직 중요한 점은 상태 객체를 변경해서는 안되며,
- * 상태가 바뀐다면 새로운 객체를 반환해야 한다는 것입니다.
+ * Redux의 상태는 일반적인 JS 객체, 배열, 기본형(primitive)만을 포함해야 합니다.
+ * 객체의 최상위 값은 보통 객체입니다. 이 상태 객체를 변경해서는
+ * 안되며, 상태가 바뀌면 새 객체를 반환해야 한다는 점이 중요합니다.
  *
- * 이 예제에서 우리는 `switch` 구문과 문자열을 썼지만,
- * 여러분의 프로젝트에 맞게
- * (함수 맵 같은) 다른 컨벤션을 따르셔도 좋습니다.
+ * 리듀서 내에서는 어떤 조건문도 사용할 수 있습니다. 이 예제에서는
+ * switch 구문을 사용하겠습니다.
  */
-function counter(state = 0, action) {
+function counterReducer(state = { value: 0 }, action) {
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
+    case 'counter/incremented':
+      return { value: state.value + 1 }
+    case 'counter/decremented':
+      return { value: state.value - 1 }
     default:
       return state
   }
@@ -97,22 +95,22 @@ function counter(state = 0, action) {
 
 // 앱의 상태를 보관하는 Redux 저장소를 만듭니다.
 // API로는 { subscribe, dispatch, getState }가 있습니다.
-let store = createStore(counter)
+let store = createStore(counterReducer)
 
 // subscribe()를 이용해 상태 변화에 따라 UI가 변경되게 할 수 있습니다.
 // 보통은 subscribe()를 직접 사용하기보다는 뷰 바인딩 라이브러리(예를 들어 React Redux)를 사용합니다.
-// 하지만 현재 상태를 localStorage에 영속적으로 저장할 때도 편리합니다.
+// 구독을 사용하면 도움이 되는 경우도 있습니다.
 
 store.subscribe(() => console.log(store.getState())))
 
 // 내부 상태를 변경하는 유일한 방법은 액션을 보내는 것뿐입니다.
 // 액션은 직렬화할수도, 로깅할수도, 저장할수도 있으며 나중에 재실행할수도 있습니다.
-store.dispatch({ type: 'INCREMENT' })
-// 1
-store.dispatch({ type: 'INCREMENT' })
-// 2
-store.dispatch({ type: 'DECREMENT' })
-// 1
+store.dispatch({ type: 'counter/incremented' })
+// {value: 1}
+store.dispatch({ type: 'counter/incremented' })
+// {value: 2}
+store.dispatch({ type: 'counter/decremented' })
+// {value: 1}
 ```
 
 상태를 바로 변경하는 대신, **액션**이라 불리는 평범한 객체를 통해 일어날 변경을 명시합니다. 그리고 각각의 액션이 전체 애플리케이션의 상태를 어떻게 변경할지 결정하는 특별한 함수인 **리듀서**를 작성합니다.
@@ -121,17 +119,67 @@ store.dispatch({ type: 'DECREMENT' })
 
 이런 아키텍처가 카운터 앱에서는 너무 과한 것처럼 보이지만, 크고 복잡한 앱에서는 이 패턴의 확장성이 잘 드러납니다. 액션에 따른 모든 변경을 추적할 수 있기 때문에, 매우 강력한 개발자 도구를 가능하게 해주기도 합니다. 여러분은 사용자 세션을 기록한 다음 액션 하나하나를 다시 실행해 볼 수 있습니다.
 
+### Redux Toolkit 예제
+
+Redux Toolkit은 Redux 로직을 작성하고 저장소를 만드는 일을 단순하게 만들어줍니다. Redux Toolkit을 이용하면 같은 로직이 아래와 같이 됩니다:
+
+```js
+import { createSlice, configureStore } from '@reduxjs/toolkit'
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: {
+    value: 0
+  },
+  reducers: {
+    incremented: state => {
+      // Redux Toolkit은 리듀서 내에서 "변경"을 할 수 있게 해줍니다.
+      // "상태 초안"의 변화를 감지해서 새 불변 상태를 만들어주는
+      // Immer 라이브러리를 사용하기 때문에, 실제로는 변경이
+      // 일어나지 않습니다.
+      state.value += 1
+    },
+    decremented: state => {
+      state.value -= 1
+    }
+  }
+})
+
+export const { incremented, decremented } = counterSlice.actions
+
+const store = configureStore({
+  reducer: counterSlice.reducer
+})
+
+// 저장소 구독은 여전히 가능합니다
+store.subscribe(() => console.log(store.getState()))
+
+// 여전히 `dispatch`에 액션 객체를 넘겨야 하지만, 이미 만들어져 있습니다.
+store.dispatch(incremented())
+// {value: 1}
+store.dispatch(incremented())
+// {value: 2}
+store.dispatch(decremented())
+// {value: 1}
+```
+
+Redux Toolkit은 Redux의 동작과 데이터 흐름을 여전히 따르지만 읽기 쉬운 로직을 더 짧게 쓸 수 있도록 해줍니다.
+
 ## Redux 배우기
 
 Redux를 배우는 데 도움이 될 다양한 자료가 있습니다.
 
 ### Redux Essentials Tutorial
 
-The [**Redux Essentials tutorial**](../tutorials/essentials/part-1-overview-concepts.md) is a "top-down" tutorial that teaches how to use Redux the right way, using our latest recommended APIs and best practices. We recommend starting there.
+The [**Redux Essentials tutorial**](../tutorials/essentials/part-1-overview-concepts.md) is a "top-down" tutorial that teaches "how to use Redux the right way", using our latest recommended APIs and best practices. We recommend starting there.
+
+### Redux Fundamentals Tutorial
+
+The [**Redux Fundamentals tutorial**](../tutorials/fundamentals/part-1-overview.md) is a "bottom-up" tutorial that teaches "how Redux works" from first principles and without any abstractions, and why standard Redux usage patterns exist.
+
 
 ### Additional Tutorials
 
-- The Redux docs [**Basic tutorial**](../basics/README.md) and [**Advanced tutorial**](../advanced/README.md) are a "bottom-up" tutorial that teaches how Redux works, starting from first principles.
 - The Redux repository contains several example projects demonstrating various aspects of how to use Redux. Almost all examples have a corresponding CodeSandbox sandbox. This is an interactive version of the code that you can play with online. See the complete list of examples in the **[Examples page](./Examples.md)**.
 - Redux creator Dan Abramov's **free ["Getting Started with Redux" video series](https://egghead.io/series/getting-started-with-redux)** and **[Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)** video courses on Egghead.io
 - Redux maintainer Mark Erikson's **["Redux Fundamentals" conference talk](http://blog.isquaredsoftware.com/2018/03/presentation-reactathon-redux-fundamentals/)** and [**"Redux Fundamentals" workshop slides**](https://blog.isquaredsoftware.com/2018/06/redux-fundamentals-workshop-slides/)
@@ -146,7 +194,7 @@ The [**Redux Essentials tutorial**](../tutorials/essentials/part-1-overview-conc
 
 ## 도움과 논의
 
-The **[#redux channel](https://discord.gg/0ZcbPKXt5bZ6au5t)** of the **[Reactiflux Discord community](http://www.reactiflux.com)** is our official resource for all questions related to learning and using Redux. Reactiflux is a great place to hang out, ask questions, and learn - come join us!
+The **[#redux channel](https://discord.gg/reactiflux)** of the **[Reactiflux Discord community](http://www.reactiflux.com)** is our official resource for all questions related to learning and using Redux. Reactiflux is a great place to hang out, ask questions, and learn - come join us!
 
 You can also ask questions on [Stack Overflow](https://stackoverflow.com) using the **[#redux tag](https://stackoverflow.com/questions/tagged/redux)**.
 

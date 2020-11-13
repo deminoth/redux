@@ -1,6 +1,6 @@
 module.exports = {
   docs: {
-    Introduction: [
+    소개: [
       'introduction/getting-started',
       'introduction/installation',
       'introduction/core-concepts',
@@ -8,7 +8,7 @@ module.exports = {
       'introduction/ecosystem',
       'introduction/examples'
     ],
-    Tutorials: [
+    강좌: [
       'tutorials/tutorials-index',
       {
         type: 'category',
@@ -37,7 +37,7 @@ module.exports = {
         ]
       }
     ],
-    Recipes: [
+    레시피: [
       'recipes/recipe-index',
       'recipes/configuring-your-store',
       'recipes/usage-with-typescript',
@@ -71,10 +71,10 @@ module.exports = {
         ]
       }
     ],
-    'Understanding Redux': [
+    'Redux 이해하기': [
       {
         type: 'category',
-        label: 'Thinking in Redux',
+        label: 'Redux로 생각하기',
         items: [
           'understanding/thinking-in-redux/motivation',
           'understanding/thinking-in-redux/three-principles',
@@ -83,7 +83,7 @@ module.exports = {
       },
       {
         type: 'category',
-        label: 'History and Design',
+        label: '역사와 디자인',
         items: [
           'understanding/history-and-design/prior-art',
           'understanding/history-and-design/middleware'
@@ -105,7 +105,7 @@ module.exports = {
       'faq/miscellaneous'
     ],
     'Style Guide': ['style-guide/style-guide'],
-    'API Reference': [
+    'API 레퍼런스': [
       'api/api-reference',
       'api/createstore',
       'api/store',

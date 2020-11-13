@@ -1,12 +1,12 @@
 ---
 id: recipe-index
-title: '레시피 색인'
+title: '레시피 목차'
 hide_title: true
 ---
 
 # 레시피
 
-Redux를 실제 앱에서 사용할 수 있도록 몇 가지 사용례와 코드 조각들을 모아봤습니다. 여러분이 [기초](../basics/README.md)와 [심화](../advanced/README.md) 강좌의 주제들을 이해하고 있다고 가정합니다.
+Redux를 실제 앱에서 사용할 수 있도록 몇 가지 사용례와 코드 조각들을 모아봤습니다. 여러분이 ["Redux 핵심" 강좌](../tutorials/fundamentals/part-1-overview.md)의 주제들을 이해하고 있다고 가정합니다.
 
 - [Configuring Your Store](ConfiguringYourStore.md)
 - [Usage with TypeScript](UsageWithTypescript.md)

@@ -19,7 +19,7 @@ Redux에서 저들 라이브러리로 옮기는 것도 아래의 순서를 반�
 
 여러분이 해야 할 순서는 다음과 같습니다:
 
-- 기존 앱이 리듀서와 호환되게 하는 Flux 저장소를 만드는 `createFluxStore(reducer)`라는 이름의 함수를 만듭니다. 내부적으로는 Redux의 [`createStore`](../api/createStore.md) 구현과 비슷합니다. 이 저장소의 디스패치 핸들러는 액션을 받아서 `reducer`를 호출하고, 다음 상태를 저장하고, 변경사항을 알립니다.
+- 기존 앱이 리듀서와 호환되게 하는 Flux 저장소를 만드는 `createFluxStore(reducer)`라는 이름의 함수를 만듭니다. 내부적으로는 Redux의 [`createStore`](../api/createStore.md) ([source](https://github.com/reduxjs/redux/blob/v4.0.5/src/createStore.js)) 구현과 비슷합니다. 이 저장소의 디스패치 핸들러는 액션을 받아서 `reducer`를 호출하고, 다음 상태를 저장하고, 변경사항을 알립니다.
 
 - 이를 통해 앱의 모든 Flux 저장소들을 리듀서로 재작성하면서도 `createFluxStore(reducer)`를 익스포트해서 앱의 나머지 부분이 변화를 신경쓰지 않고 Flux 저장소를 바라보게끔 합니다.
 
@@ -27,7 +27,7 @@ Redux에서 저들 라이브러리로 옮기는 것도 아래의 순서를 반�
 
 - Flux 저장소를 모두 리듀서 기반으로 옮기고 나면 Flux 라이브러리를 Redux 저장소로 교체하고 작성한 리듀서들을 [`combineReducers(reducers)`](../api/combineReducers.md)을 통해 합칩니다.
 
-- 이제 남은것은 [react-redux](../basics/UsageWithReact.md)나 다른 것들을 사용해 UI를 옮기는 작업입니다.
+- 이제 남은것은 [React-Redux](../tutorials/fundamentals/part-5-ui-and-react.md)나 다른 것들을 사용해 UI를 옮기는 작업입니다.
 
 - 마지막으로 비동기 코드를 더 단순화하기 위해 미들웨어같은 Redux 문법을 사용하기를 원할겁니다.
 

@@ -184,7 +184,7 @@ function addComment(state, action) {
 
 const featureReducers = createReducer({}, {
     ADD_COMMENT : addComment,
-};
+});
 
 const rootReducer = reduceReducers(
     combinedReducer,
@@ -196,7 +196,7 @@ const rootReducer = reduceReducers(
 
 ### 리덕스-ORM
 
-[리덕스-ORM](https://github.com/tommikaikkonen/redux-orm)라이브러리는 리덕스 저장소에서 정규화된 데이터를 관리하기 위해 매우 유용한 추상 레이어를 제공합니다. 이는 모델 클래스를 선언하고 그들의 관계를 정의할 수 있게 합니다. 데이터 타입에 빈 "테이블"을 생성하고 데이터를 제공하는 특수한 선택 도구의 역할로 불변 데이터의 업데이트를 수행합니다.
+[리덕스-ORM](https://github.com/tommikaikkonen/redux-orm)라이브러리는 리덕스 저장소에서 정규화된 데이터를 관리하기 위해 매우 유용한 추상 계층을 제공합니다. 이는 모델 클래스를 선언하고 그들의 관계를 정의할 수 있게 합니다. 데이터 타입에 빈 "테이블"을 생성하고 데이터를 제공하는 특수한 선택 도구의 역할로 불변 데이터의 업데이트를 수행합니다.
 
 리덕스-ORM를 사용해서 업데이트를 수행하는 몇 가지 방법이 있습니다. 첫번째로 리덕스-ORM 도큐먼트에서는 각 모델의 서브 클래스에서 리듀서 함수를 정의하면 저장소에 리듀서가 자동 생성되어 결합합니다.
 
@@ -293,7 +293,7 @@ store.dispatch({
 
 리덕스-ORM 라이브러리는 적용할 업데이트의 내부 큐를 유지합니다. 이후 업데이트는 불변하게 적용되므로 업데이트 프로세스가 단순해집니다.
 
-리덕스-ORM을 사용하는 또 다른 방법은 한 케이스의 리듀서내에서 추상 레이어로 사용하는 겁니다.
+리덕스-ORM을 사용하는 또 다른 방법은 한 케이스의 리듀서내에서 추상 계층으로 사용하는 겁니다.
 
 ```js
 import { schema } from './models'
