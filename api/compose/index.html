@@ -6,20 +6,17 @@
 <meta name="generator" content="Docusaurus v2.0.0-alpha.71">
 <link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Redux Blog RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Redux Blog Atom Feed">
-<link rel="preconnect" href="https://www.google-analytics.com">
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-130598673-1","auto"),ga("send","pageview")</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
 <link rel="search" type="application/opensearchdescription+xml" title="Redux" href="/opensearch.xml"><title data-react-helmet="true">compose | Redux</title><meta data-react-helmet="true" property="og:image" content="https://ko.redux.js.org/img/redux-logo-landscape.png"><meta data-react-helmet="true" name="twitter:image" content="https://ko.redux.js.org/img/redux-logo-landscape.png"><meta data-react-helmet="true" property="og:url" content="https://ko.redux.js.org/api/compose"><meta data-react-helmet="true" name="docsearch:language" content="ko"><meta data-react-helmet="true" name="docsearch:version" content="current"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-react-helmet="true" name="twitter:card" content="summary"><meta data-react-helmet="true" property="og:title" content="compose | Redux"><meta data-react-helmet="true" name="description" content="compose(...functions)"><meta data-react-helmet="true" property="og:description" content="compose(...functions)"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon/favicon.ico"><link data-react-helmet="true" rel="canonical" href="https://ko.redux.js.org/api/compose"><link data-react-helmet="true" rel="alternate" href="https://ko.redux.js.org/api/compose" hreflang="en"><link data-react-helmet="true" rel="alternate" href="https://ko.redux.js.org/ko/api/compose" hreflang="ko"><link data-react-helmet="true" rel="alternate" href="https://ko.redux.js.org/api/compose" hreflang="x-default"><link data-react-helmet="true" rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.f826a556.css">
-<link rel="preload" href="/assets/js/styles.ca7e24e9.js" as="script">
-<link rel="preload" href="/assets/js/runtime~main.ecc470d6.js" as="script">
-<link rel="preload" href="/assets/js/main.195d8dbd.js" as="script">
-<link rel="preload" href="/assets/js/1.7657c2e8.js" as="script">
-<link rel="preload" href="/assets/js/2.b64cb3c8.js" as="script">
-<link rel="preload" href="/assets/js/83.858ec963.js" as="script">
-<link rel="preload" href="/assets/js/86.85abb3cf.js" as="script">
-<link rel="preload" href="/assets/js/935f2afb.79098a49.js" as="script">
-<link rel="preload" href="/assets/js/17896441.8c9a8f4b.js" as="script">
-<link rel="preload" href="/assets/js/e8a399c4.c67e695a.js" as="script">
+<link rel="preload" href="/assets/js/styles.d4eeb398.js" as="script">
+<link rel="preload" href="/assets/js/runtime~main.93bfa164.js" as="script">
+<link rel="preload" href="/assets/js/main.2672db27.js" as="script">
+<link rel="preload" href="/assets/js/1.ac88673e.js" as="script">
+<link rel="preload" href="/assets/js/2.5df37689.js" as="script">
+<link rel="preload" href="/assets/js/83.0b0f8f2c.js" as="script">
+<link rel="preload" href="/assets/js/86.e8a51b17.js" as="script">
+<link rel="preload" href="/assets/js/935f2afb.a02f35db.js" as="script">
+<link rel="preload" href="/assets/js/17896441.0982b53e.js" as="script">
+<link rel="preload" href="/assets/js/e8a399c4.abe5ae4c.js" as="script">
 </head>
 <body>
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script><div id="__docusaurus">
@@ -30,15 +27,15 @@
                   <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify">
                 </a>
               </li></ul></div></div><div class="footer__bottom text--center"><div class="margin-bottom--sm"><a href="https://ko.redux.js.org/" target="_blank" rel="noopener noreferrer" class="footerLogoLink_MyFc"><img src="/img/redux.svg" alt="Redux Logo" class="themedImage_1VuW themedImage--light_3UqQ footer__logo"><img src="/img/redux.svg" alt="Redux Logo" class="themedImage_1VuW themedImage--dark_hz6m footer__logo"></a></div><div class="footer__copyright">Copyright © 2015–2021 Dan Abramov and the Redux documentation authors.</div></div></div></footer></div>
-<script src="/assets/js/styles.ca7e24e9.js"></script>
-<script src="/assets/js/runtime~main.ecc470d6.js"></script>
-<script src="/assets/js/main.195d8dbd.js"></script>
-<script src="/assets/js/1.7657c2e8.js"></script>
-<script src="/assets/js/2.b64cb3c8.js"></script>
-<script src="/assets/js/83.858ec963.js"></script>
-<script src="/assets/js/86.85abb3cf.js"></script>
-<script src="/assets/js/935f2afb.79098a49.js"></script>
-<script src="/assets/js/17896441.8c9a8f4b.js"></script>
-<script src="/assets/js/e8a399c4.c67e695a.js"></script>
+<script src="/assets/js/styles.d4eeb398.js"></script>
+<script src="/assets/js/runtime~main.93bfa164.js"></script>
+<script src="/assets/js/main.2672db27.js"></script>
+<script src="/assets/js/1.ac88673e.js"></script>
+<script src="/assets/js/2.5df37689.js"></script>
+<script src="/assets/js/83.0b0f8f2c.js"></script>
+<script src="/assets/js/86.e8a51b17.js"></script>
+<script src="/assets/js/935f2afb.a02f35db.js"></script>
+<script src="/assets/js/17896441.0982b53e.js"></script>
+<script src="/assets/js/e8a399c4.abe5ae4c.js"></script>
 </body>
 </html>
